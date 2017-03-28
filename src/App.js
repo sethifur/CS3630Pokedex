@@ -14,7 +14,9 @@ class App extends Component {
         <p className="App-intro">
 
         </p>
-        <PokemonHolder />
+        <div className="pHolder">
+          <PokemonHolder />
+        </div>
       </div>
     );
   }

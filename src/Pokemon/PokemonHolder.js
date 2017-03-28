@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import pic from '../spr';
+
 class PokemonHolder extends Component{
 
   constructor(props) {
@@ -14,7 +14,9 @@ class PokemonHolder extends Component{
   }
 
   onClick(){
-    const url = "https://pokeapi.co/api/v2/pokemon/";
+    //for(var j = 0; j < 150; j++){
+    var j = 150;
+    const url = 'https://pokeapi.co/api/v2/pokemon/';
     fetch(url).then(res=>res.json())
       .then(res => res.results)
       .then(res => res.map(post => ({
@@ -23,23 +25,30 @@ class PokemonHolder extends Component{
       }))).then(res => {
         for(var i = 0; i < 20; i++)
         {
-          if(i > 99){
-            var im = pic.{i + "MS.png"};
-          }else if(i < 10){
-            var im = pic.{"00" + i + "MS.png"};
-          }else {
-            var im = pic.{"0" + i + "MS.png"};
+          if((i+1) > 99){
+            var im = "/static/images/spr/" + (i+1) + "MS.png";
+            var val = "" + (i+1);
+          }else if((i+1) < 10){
+            var im = "/static/images/spr/00" + (i+1) + "MS.png";
+            var val = "00" + (i+1);
+          }else if((i+1) >= 10){
+            var im = "/static/images/spr/0" + (i+1) + "MS.png";
+            var val = "0" + (i+1);
           }
-
           document.getElementById("poke").innerHTML =
-          document.getElementById("poke").innerHTML + `<img src={im}/><h3>${res[i].name}</h3><br />`;
+            document.getElementById("poke").innerHTML +
+            `<div style="display:flex;">
+              <p>${val}</p>
+              <img src='${im}'/>
+              <p style="float:left;">${res[i].name}</p>
+            </div>`;
           console.log(res[i].name);
           console.log(res[i].url);
         }
       })
       .catch(error => console.log('error', error));
-
-  }
+    }
+  //}
 
   blah({name,url}){
     console.log(name + " " + url);

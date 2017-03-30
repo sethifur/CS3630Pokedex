@@ -14,9 +14,9 @@ class PokemonHolder extends Component{
   }
 
   onClick(){
-    //for(var j = 0; j < 150; j++){
-    var j = 150;
-    const url = 'https://pokeapi.co/api/v2/pokemon/';
+    var val = "";
+    var im = "";
+    const url = `https://pokeapi.co/api/v2/pokemon/?offset=0`;
     fetch(url).then(res=>res.json())
       .then(res => res.results)
       .then(res => res.map(post => ({
@@ -25,15 +25,21 @@ class PokemonHolder extends Component{
       }))).then(res => {
         for(var i = 0; i < 20; i++)
         {
-          if((i+1) > 99){
-            var im = "/static/images/spr/" + (i+1) + "MS.png";
-            var val = "" + (i+1);
-          }else if((i+1) < 10){
-            var im = "/static/images/spr/00" + (i+1) + "MS.png";
-            var val = "00" + (i+1);
-          }else if((i+1) >= 10){
-            var im = "/static/images/spr/0" + (i+1) + "MS.png";
-            var val = "0" + (i+1);
+          var endIndex = res[i].url.length - 1;
+          var pokenum = res[i].url.substring(34,endIndex);
+          if(pokenum > 99){
+            im = "/static/images/spr/" + pokenum + "MS.png";
+            val = "" + pokenum;
+          }
+          else if(pokenum >= 10 && pokenum <= 99){
+            im = "/static/images/spr/0" + pokenum + "MS.png";
+            val = "0" + pokenum;
+          }
+          else if(pokenum < 10){
+            im = "/static/images/spr/00" + pokenum + "MS.png";
+            val = "00" + pokenum;
+          }else{
+            console.log("wrong");
           }
           document.getElementById("poke").innerHTML =
             document.getElementById("poke").innerHTML +
@@ -42,23 +48,19 @@ class PokemonHolder extends Component{
               <img src='${im}'/>
               <p style="float:left;">${res[i].name}</p>
             </div>`;
-          console.log(res[i].name);
-          console.log(res[i].url);
         }
       })
       .catch(error => console.log('error', error));
-    }
-  //}
-
-  blah({name,url}){
-    console.log(name + " " + url);
   }
+
 
   render(){
     return(
       <div ref="holder">
-        <input type="button" value="click" onClick={this.onClick}/>
         <div id="poke"></div>
+        <input type="button" value="Next" onClick={this.onClick}/>
+        <br/>
+        <br/>
       </div>
       );
   }

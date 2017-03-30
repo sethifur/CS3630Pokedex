@@ -6,18 +6,33 @@ class PokemonHolder extends Component{
     super(props);
     this.onClick = this.onClick.bind(this);
     this.state = {
-      next: '',
+      next: 'https://pokeapi.co/api/v2/pokemon/?offset=0',
       name: [],
       pokeUrl: [],
       count: 0
     };
   }
 
+  componentDidMount(){
+    this.retrieveList();
+  }
+
   onClick(){
+    this.retrieveList();
+  }
+
+  retrieveList(){
     var val = "";
     var im = "";
-    const url = `https://pokeapi.co/api/v2/pokemon/?offset=0`;
+    const url = this.state.next;
     fetch(url).then(res=>res.json())
+      .then(res => {
+        this.setState({next: res.next});
+        // this.setState(state => ({
+        //   name: [ ...state.name, res.name ]
+        // }));
+               return res;
+      })
       .then(res => res.results)
       .then(res => res.map(post => ({
         name: post.name,
@@ -50,6 +65,7 @@ class PokemonHolder extends Component{
             </div>`;
         }
       })
+      .then(res => console.log(res.next))
       .catch(error => console.log('error', error));
   }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import PokemonHolder from './Pokemon';
+import ItemHolder from './Items';
 
 class App extends Component {
   render() {
@@ -16,6 +17,9 @@ class App extends Component {
         </p>
         <div className="pHolder">
           <PokemonHolder />
+        </div>
+        <div className="iHolder">
+          <ItemHolder />
         </div>
       </div>
     );

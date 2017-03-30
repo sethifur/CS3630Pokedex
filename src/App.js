@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import PokemonHolder from './Pokemon';
 import ItemHolder from './Items';
+import MoveHolder from './Moves';
 
 class App extends Component {
   render() {
@@ -12,14 +13,15 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
 
-        </p>
         <div className="pHolder">
           <PokemonHolder />
         </div>
         <div className="iHolder">
           <ItemHolder />
+        </div>
+        <div className="mHolder">
+          <MoveHolder />
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import './ItemHolder.css';
 
 class ItemHolder extends Component{
 
@@ -43,14 +44,22 @@ class ItemHolder extends Component{
         {
           var endIndex = res[i].url.length - 1;
           var itemnum = res[i].url.substring(31,endIndex);
-            im = "/static/images/items/" + res[i].name + ".png";
-            val = "" + itemnum;
 
+          if(itemnum > 99){val = "" + itemnum;}
+          else if(itemnum >= 10 && itemnum <= 99){val = "0" + itemnum;}
+          else if(itemnum < 10){val = "00" + itemnum;}
+          else{console.log("wrong");}
+
+          if(res[i].name.substring(0,2) !== 'tm'){
+            im = "/static/images/items/" + res[i].name + ".png";
+          }else{
+            im = "/static/images/items/tm-normal.png";
+          }
           document.getElementById("item").innerHTML =
             document.getElementById("item").innerHTML +
-            `<div style="display:flex;">
+            `<div style="display:flex; height:40px; align-items:center;">
               <p>${val}</p>
-              <img src='${im}'/>
+              <img className="itemImg" src='${im}' style="height:30px;"/>
               <p style="float:left;">${res[i].name}</p>
             </div>`;
         }

@@ -41,9 +41,13 @@ class MoveHolder extends Component{
         for(var i = 0; i < 20; i++)
         {
           var endIndex = res[i].url.length - 1;
-          var itemnum = res[i].url.substring(31,endIndex);
-          val = "" + itemnum;
+          var movenum = res[i].url.substring(31,endIndex);
 
+          if(movenum > 99){val = "" + movenum;}
+          else if(movenum >= 10 && movenum <= 99){val = "0" + movenum;}
+          else if(movenum < 10){val = "00" + movenum;}
+          else{console.log("wrong");}
+          
           document.getElementById("move").innerHTML =
             document.getElementById("move").innerHTML +
             `<div style="display:flex;">

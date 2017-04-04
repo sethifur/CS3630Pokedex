@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import './PokemonHolder.css';
+import PokemonRow from './PokemonRow';
 
 class PokemonHolder extends Component{
 
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+    this.expandPoke = this.expandPoke.bind(this);
     this.state = {
       next: 'https://pokeapi.co/api/v2/pokemon/?offset=0',
-      name: [],
-      pokeUrl: [],
-      count: 0
+      pokemon: []
     };
   }
 
@@ -21,6 +22,10 @@ class PokemonHolder extends Component{
     this.retrieveList();
   }
 
+  expandPoke(){
+    console.log("hello its me");
+  }
+
   retrieveList(){
     var val = "";
     var im = "";
@@ -28,15 +33,18 @@ class PokemonHolder extends Component{
     fetch(url).then(res=>res.json())
       .then(res => {
         this.setState({next: res.next});
-        // this.setState(state => ({
-        //   name: [ ...state.name, res.name ]
-        // }));
-               return res;
+        return res;
       })
       .then(res => res.results)
       .then(res => res.map(post => ({
         name: post.name,
+        // this.setState(state => ({
+        //   name: [ ...state.name, res.name ]
+        // }));
         url: post.url
+        // this.setState(state => ({
+        //   url: [ ...state.url, post.url ]
+        // }));
       }))).then(res => {
         for(var i = 0; i < 20; i++)
         {
@@ -56,16 +64,19 @@ class PokemonHolder extends Component{
           }else{
             console.log("wrong");
           }
-          document.getElementById("poke").innerHTML =
-            document.getElementById("poke").innerHTML +
-            `<div style="display:flex;">
-              <p>${val}</p>
-              <img src='${im}'/>
-              <p style="float:left;">${res[i].name}</p>
-            </div>`;
+          var obj = {
+            number:val,
+            sprite:im,
+            name:res[i].name,
+            url:res[i].url
+          };
+
+          this.setState(state => ({
+            pokemon: [...this.state.pokemon, obj]
+          }));
         }
       })
-      .then(res => console.log(res.next))
+      .then(console.log(this.state))
       .catch(error => console.log('error', error));
   }
 
@@ -73,7 +84,11 @@ class PokemonHolder extends Component{
   render(){
     return(
       <div ref="holder">
-        <div id="poke"></div>
+        <div id="poke">
+          this.state.pokemon.map(p =>
+            <PokemonRow {...this.state.pokemon}/>
+          );
+        </div>
         <input type="button" value="Next" onClick={this.onClick}/>
         <br/>
         <br/>

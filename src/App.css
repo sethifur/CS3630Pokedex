@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-
+  width: 100%;
 }
 .pHolder{
   margin-left: 50px;
@@ -23,14 +23,17 @@
 .pHolder{
   float: left;
   margin-right: 3em;
+  width: 25%;
 }
 .iHolder{
   float: left;
   margin-right: 3em;
+  width: 25%;
 }
 .mHolder{
   float:left;
   margin-right: 3em;
+  width: 25%;
 }
 
 @keyframes App-logo-spin {

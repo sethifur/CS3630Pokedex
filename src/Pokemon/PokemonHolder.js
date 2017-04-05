@@ -76,7 +76,11 @@ class PokemonHolder extends Component{
           }));
         }
       })
-      .then(console.log(this.state))
+      // .then(() => {
+      //   return this.state.pokemon.map((item) => (
+      //          <PokemonRow {...item}/>
+      //   ))
+      // })
       .catch(error => console.log('error', error));
   }
 
@@ -85,9 +89,11 @@ class PokemonHolder extends Component{
     return(
       <div ref="holder">
         <div id="poke">
-          this.state.pokemon.map(p =>
-            <PokemonRow {...this.state.pokemon}/>
-          );
+        {
+          this.state.pokemon.map((item) => (
+			           <PokemonRow {...item}/>
+		      ))
+        }
         </div>
         <input type="button" value="Next" onClick={this.onClick}/>
         <br/>

@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import './ItemHolder.css';
+import ItemRow from './ItemRow';
 
 class ItemHolder extends Component{
 
@@ -9,9 +10,7 @@ class ItemHolder extends Component{
     this.onClick = this.onClick.bind(this);
     this.state = {
       next: 'https://pokeapi.co/api/v2/item/?offset=0',
-      name: [],
-      itemUrl: [],
-      count: 0
+      item: []
     };
   }
 
@@ -30,10 +29,7 @@ class ItemHolder extends Component{
     fetch(url).then(res=>res.json())
       .then(res => {
         this.setState({next: res.next});
-        // this.setState(state => ({
-        //   name: [ ...state.name, res.name ]
-        // }));
-          return res;
+        return res;
       })
       .then(res => res.results)
       .then(res => res.map(post => ({
@@ -55,13 +51,17 @@ class ItemHolder extends Component{
           }else{
             im = "/static/images/items/tm-normal.png";
           }
-          document.getElementById("item").innerHTML =
-            document.getElementById("item").innerHTML +
-            `<div style="display:flex; height:40px; align-items:center;">
-              <p>${val}</p>
-              <img className="itemImg" src='${im}' style="height:30px;"/>
-              <p style="float:left;">${res[i].name}</p>
-            </div>`;
+
+          var obj = {
+            number:val,
+            sprite:im,
+            name:res[i].name,
+            url:res[i].url
+          };
+
+          this.setState(state => ({
+            item: [...this.state.item, obj]
+          }));
         }
       })
       .then(res => console.log(res.next))
@@ -72,7 +72,13 @@ class ItemHolder extends Component{
   render(){
     return(
       <div ref="holder">
-        <div id="item"></div>
+        <div id="item">
+        {
+          this.state.item.map((res) => (
+			           <ItemRow {...res}/>
+		      ))
+        }
+        </div>
         <input type="button" value="Next" onClick={this.onClick}/>
         <br/>
         <br/>

@@ -1,8 +1,4 @@
-.itemImg{
-    width: 30px;
-    height: 30px;
-}
-.items{
+.moves{
   display:flex;
   border-bottom: solid;
   border-right: solid;

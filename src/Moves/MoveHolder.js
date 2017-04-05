@@ -1,5 +1,5 @@
-
 import React, { Component } from 'react';
+import MoveRow from './MoveRow';
 
 class MoveHolder extends Component{
 
@@ -8,9 +8,7 @@ class MoveHolder extends Component{
     this.onClick = this.onClick.bind(this);
     this.state = {
       next: 'https://pokeapi.co/api/v2/move/?offset=0',
-      name: [],
-      itemUrl: [],
-      count: 0
+      move: []
     };
   }
 
@@ -28,10 +26,7 @@ class MoveHolder extends Component{
     fetch(url).then(res=>res.json())
       .then(res => {
         this.setState({next: res.next});
-        // this.setState(state => ({
-        //   name: [ ...state.name, res.name ]
-        // }));
-          return res;
+        return res;
       })
       .then(res => res.results)
       .then(res => res.map(post => ({
@@ -47,12 +42,15 @@ class MoveHolder extends Component{
           else if(movenum >= 10 && movenum <= 99){val = "0" + movenum;}
           else if(movenum < 10){val = "00" + movenum;}
           else{console.log("wrong");}
-          
-          document.getElementById("move").innerHTML =
-            document.getElementById("move").innerHTML +
-            `<div style="display:flex;">
-              <p style="float:left;">${val} ${res[i].name}</p>
-            </div>`;
+          var obj = {
+            number:val,
+            name:res[i].name,
+            url:res[i].url
+          };
+
+          this.setState(state => ({
+            move: [...this.state.move, obj]
+          }));
         }
       })
       .then(res => console.log(res.next))
@@ -63,7 +61,13 @@ class MoveHolder extends Component{
   render(){
     return(
       <div ref="holder">
-        <div id="move"></div>
+        <div id="move">
+        {
+          this.state.move.map((item) => (
+            <MoveRow {...item}/>
+          ))
+        }
+        </div>
         <input type="button" value="Next" onClick={this.onClick}/>
         <br/>
         <br/>

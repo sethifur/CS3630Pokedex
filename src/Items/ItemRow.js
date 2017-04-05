@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './PokemonHolder.css';
+import './ItemHolder.css';
 
 export default (props)=>(
-  <div className="pokemon">
+  <div className="items">
        <p>{props.number}</p>
        <img src={props.sprite}/>
        <p >{props.name}</p>

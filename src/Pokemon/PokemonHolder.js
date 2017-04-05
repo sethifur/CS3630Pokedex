@@ -38,13 +38,7 @@ class PokemonHolder extends Component{
       .then(res => res.results)
       .then(res => res.map(post => ({
         name: post.name,
-        // this.setState(state => ({
-        //   name: [ ...state.name, res.name ]
-        // }));
         url: post.url
-        // this.setState(state => ({
-        //   url: [ ...state.url, post.url ]
-        // }));
       }))).then(res => {
         for(var i = 0; i < 20; i++)
         {
@@ -76,11 +70,6 @@ class PokemonHolder extends Component{
           }));
         }
       })
-      // .then(() => {
-      //   return this.state.pokemon.map((item) => (
-      //          <PokemonRow {...item}/>
-      //   ))
-      // })
       .catch(error => console.log('error', error));
   }
 

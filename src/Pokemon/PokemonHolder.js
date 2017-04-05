@@ -7,7 +7,7 @@ class PokemonHolder extends Component{
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
-    this.expandPoke = this.expandPoke.bind(this);
+    this.show = this.show.bind(this);
     this.state = {
       next: 'https://pokeapi.co/api/v2/pokemon/?offset=0',
       pokemon: []
@@ -22,8 +22,8 @@ class PokemonHolder extends Component{
     this.retrieveList();
   }
 
-  expandPoke(){
-    console.log("hello its me");
+  show(name){
+    console.log(name);
   }
 
   retrieveList(){
@@ -80,7 +80,7 @@ class PokemonHolder extends Component{
         <div id="poke">
         {
           this.state.pokemon.map((item) => (
-			           <PokemonRow {...item}/>
+			           <PokemonRow {...item} onClick={ ()=>this.show(item.name) }/>
 		      ))
         }
         </div>

@@ -5,7 +5,7 @@ import PokemonHolder from './Pokemon';
 import ItemHolder from './Items';
 import MoveHolder from './Moves';
 import Circle from 'react-shapes';
-//import NavLink from './NavLink';
+import { Link } from 'react-router';
 
 class App extends Component {
   constructor(props){
@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   onNavClick(id){
-    console.log(id);
+    return
   }
 
   render() {
@@ -25,15 +25,15 @@ class App extends Component {
           <h2>PokeDex</h2>
         </div>
         <div className="App-navigation">
-          <div onClick={() => this.onNavClick('PokemonHolder')}>
+          <Link to="/pokemon">
             Pokemon
-          </div>
-          <div onClick={() => this.onNavClick('ItemHolder')}>
+          </Link>
+          <Link to="/item">
             Items
-          </div>
-          <div onClick={() => this.onNavClick('MoveHolder')}>
-          Moves
-          </div>
+          </Link>
+          <Link to="/move">
+            Moves
+          </Link>
         </div>
         <div className="pHolder">
 

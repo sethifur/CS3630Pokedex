@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './PokemonHolder.css';
 import PokemonRow from './PokemonRow';
+//import Details from './Details';
 
 class PokemonHolder extends Component{
 
@@ -10,7 +11,13 @@ class PokemonHolder extends Component{
     this.show = this.show.bind(this);
     this.state = {
       next: 'https://pokeapi.co/api/v2/pokemon/?offset=0',
-      pokemon: []
+      pokemon: [],
+      activePokemon: {
+        number:"",
+        sprite:"",
+        name:"",
+        url:""
+      }
     };
   }
 
@@ -22,8 +29,9 @@ class PokemonHolder extends Component{
     this.retrieveList();
   }
 
-  show(name){
-    console.log(name);
+  show(aPokemon){
+    this.setState(state => ({ activePokemon: aPokemon }));
+    console.log(this.state.activePokemon);
   }
 
   retrieveList(){
@@ -77,17 +85,18 @@ class PokemonHolder extends Component{
   render(){
     return(
       <div ref="holder">
-        <div id="poke">
         {
-          this.state.pokemon.map((item) => (
-			           <PokemonRow {...item} onClick={ ()=>this.show(item.name) }/>
-		      ))
+            this.state.pokemon.map((item) => (
+              <div id="poke" onClick={ ()=>this.show(item) }>
+			             <PokemonRow {...item} />
+              </div>
+		        ))
         }
-        </div>
         <input type="button" value="Next" onClick={this.onClick}/>
         <br/>
         <br/>
       </div>
+
       );
   }
 }

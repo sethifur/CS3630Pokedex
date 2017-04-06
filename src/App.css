@@ -11,12 +11,26 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #FF3311;
+  height: 40px;
   padding: 20px;
   color: white;
 }
-
+.App-navigation{
+  background-color: #000;
+  height: 30px;
+  width: 100%;
+  padding-top: 15px;
+  text-align: center;
+  align-items: center;
+}
+.App-navigation div{
+  float: left;
+  width: 33%;
+  color: #FFF;
+  text-decoration: underline;
+  font-variant: small-caps;
+}
 .App-intro {
   font-size: large;
 }

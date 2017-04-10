@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './PokemonHolder.css';
 import PokemonRow from './PokemonRow';
+import Details from './Details';
 //import Details from './Details';
 
 class PokemonHolder extends Component{
@@ -13,12 +14,17 @@ class PokemonHolder extends Component{
       next: 'https://pokeapi.co/api/v2/pokemon/?offset=0',
       pokemon: [],
       activePokemon: {
-        number:"",
+        number:"001",
         sprite:"",
-        name:"",
-        url:""
+        name:"bulbasaur",
+        url:"https://pokeapi.co/api/v2/pokemon/1/"
       }
     };
+  }
+
+  displayDetails(){
+    //document.getElementsByClassName('deets').innerHTML = ``;
+    document.getElementsByClassName('deets').innerHTML = `<Details {...this.state.activePokemon} />`;
   }
 
   componentDidMount(){
@@ -31,14 +37,15 @@ class PokemonHolder extends Component{
 
   show(aPokemon){
     this.setState(state => ({ activePokemon: aPokemon }));
-    console.log(this.state.activePokemon);
+    //this.displayDetails();
+    //console.log(this.state.activePokemon);
   }
 
   retrieveList(){
     var val = "";
     var im = "";
     const url = this.state.next;
-    fetch(url).then(res=>res.json())
+    fetch(url).then(res => res.json())
       .then(res => {
         this.setState({next: res.next});
         return res;
@@ -84,19 +91,23 @@ class PokemonHolder extends Component{
 
   render(){
     return(
-      <div ref="holder">
-        {
+      <div className="all">
+        <div ref="holder">
+          {
             this.state.pokemon.map((item) => (
               <div id="poke" onClick={ ()=>this.show(item) }>
 			             <PokemonRow {...item} />
               </div>
 		        ))
-        }
-        <input type="button" value="Next" onClick={this.onClick}/>
-        <br/>
-        <br/>
+          }
+          <input type="button" value="Next" onClick={this.onClick}/>
+          <br/>
+          <br/>
+        </div>
+        <div className="deets">
+          <Details {...this.state.activePokemon} />
+        </div>
       </div>
-
       );
   }
 }

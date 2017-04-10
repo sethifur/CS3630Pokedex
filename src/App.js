@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   onNavClick(id){
-    return
+    console.log(id);
   }
 
   render() {
@@ -25,20 +25,21 @@ class App extends Component {
           <h2>PokeDex</h2>
         </div>
         <div className="App-navigation">
-          <Link to="/pokemon">
+          <div onClick={() => this.onNavClick('PokemonHolder')}>
             Pokemon
-          </Link>
-          <Link to="/item">
+          </div>
+          <div onClick={() => this.onNavClick('ItemHolder')}>
             Items
-          </Link>
-          <Link to="/move">
+          </div>
+          <div onClick={() => this.onNavClick('MoveHolder')}>
             Moves
-          </Link>
+          </div>
         </div>
         <div className="pHolder">
-
           <PokemonHolder />
+
         </div>
+
       </div>
     );
   }

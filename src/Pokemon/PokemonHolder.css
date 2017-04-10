@@ -8,3 +8,11 @@
   margin-bottom:3px;
   border-style: outset;
 }
+
+.deets{
+  float: right;
+  margin-left: 15px;
+}
+.all{
+  display: flex;
+}

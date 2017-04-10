@@ -1,0 +1,15 @@
+.pokemonMoveList{
+  float:left;
+  width: 200px;
+}
+.pokemonImg{
+  float:left;
+}
+
+.pokemonImg img{
+  width: 200px;
+  height: 200px;
+}
+.pokemonDetails{
+  display: flex;
+}

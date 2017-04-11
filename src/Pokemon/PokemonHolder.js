@@ -22,11 +22,6 @@ class PokemonHolder extends Component{
     };
   }
 
-  displayDetails(){
-    //document.getElementsByClassName('deets').innerHTML = ``;
-    document.getElementsByClassName('deets').innerHTML = `<Details {...this.state.activePokemon} />`;
-  }
-
   componentDidMount(){
     this.retrieveList();
   }
@@ -35,8 +30,9 @@ class PokemonHolder extends Component{
     this.retrieveList();
   }
 
-  show(aPokemon){
-    this.setState(state => ({ activePokemon: aPokemon }));
+  show(aPokemon, event){
+    this.setState({activePokemon: aPokemon}, this.refs.details.show(aPokemon));
+
     //this.displayDetails();
     //console.log(this.state.activePokemon);
   }
@@ -92,7 +88,7 @@ class PokemonHolder extends Component{
   render(){
     return(
       <div className="all">
-        <div ref="holder">
+        <div className="holder">
           {
             this.state.pokemon.map((item) => (
               <div id="poke" onClick={ ()=>this.show(item) }>
@@ -105,7 +101,7 @@ class PokemonHolder extends Component{
           <br/>
         </div>
         <div className="deets">
-          <Details {...this.state.activePokemon} />
+          <Details ref="details" {...this.state.activePokemon} />
         </div>
       </div>
       );

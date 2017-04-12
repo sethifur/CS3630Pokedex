@@ -137,11 +137,10 @@ class Details extends Component{
           <table>
           <tr>
             <th>Abilities</th>
-            <th>pts</th>
           </tr>
           {
-            this.state.stats.map((abilityIndex) => (
-              <div className="stat">
+            this.state.abilities.map((abilityIndex) => (
+              <div className="ability">
                 <AbilityRow {...abilityIndex} />
               </div>
             ))

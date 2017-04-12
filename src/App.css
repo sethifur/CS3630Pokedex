@@ -7,20 +7,21 @@
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 60px;
 }
 
 .App-header {
   background-color: #FF3311;
-  height: 40px;
+  height: 30px;
   padding: 20px;
   color: white;
 }
+
 .App-navigation{
   background-color: #000;
-  height: 30px;
+  height: 20px;
   width: 100%;
-  padding-top: 15px;
+  padding-top: 10px;
   text-align: center;
   align-items: center;
 }
@@ -48,6 +49,10 @@
   float:left;
   margin-right: 3em;
   width: 25%;
+}
+
+.pokeScroll{
+  overflow-y: scroll;
 }
 
 @keyframes App-logo-spin {

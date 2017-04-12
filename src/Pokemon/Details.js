@@ -30,21 +30,21 @@ class Details extends Component{
       number: pokemon.number,
       url: pokemon.url,
       picture: '/static/images/img/' + pokemon.number + pokemon.name + '.png'}
-      , this.fetchInfo());
+      , this.fetchInfo(pokemon.url));
   }
 
   componentDidMount(){
-    this.fetchInfo();
+    this.fetchInfo(this.state.url);
   }
 
-  fetchInfo(){
-    const url = this.props.url;
+  fetchInfo(url){
+    //const url = this.props.url;
     fetch(url)
       .then(res => res.json())
       .then(res => res)
       .then(res => {this.setState(state => ({
-          height: res.height,
-          weight: res.weight,
+          height: (res.height * .1).toFixed(1),
+          weight: (res.weight * .1).toFixed(1),
           base_experience: res.base_experience
         }))
         return res;
@@ -81,60 +81,82 @@ class Details extends Component{
             number: post.stat.url.substring(32,post.stat.url.length - 1)
         }))}))
         return res;
+      }).then(res => {
+        console.log(this.state)
+        console.log(res)
       })
   }
 
   render() {
     return (
-      <div className='pokemonDetails'>
-        <div className="imageDesign">
-          <div className='pokemonImg'>
-            <img src={'/static/images/img/' + this.state.number + this.state.name + '.png'}/>
-            <h1>{this.state.number}  {this.state.name}</h1>
-          </div>
-          <div className="pokemonTypeList">
-            <h6>Height: {this.state.height}m</h6>
-            <h6>Weight: {this.state.weight}kg</h6>
-            <h6>Base Expirience: {this.state.base_experience}xp</h6>
-            {
-              this.state.types.map((typeIndex) => (
-                <div className="type">
-                  <TypeRow {...typeIndex} />
-                </div>
-              ))
-            }
-          </div>
+      <div className='all'>
+
+        <div className="one">
+          <img src={this.state.picture}/>
+          <h3>{this.state.number}  {this.state.name}</h3>
+          {
+            this.state.types.map((typeIndex) => (
+              <div className="type">
+                <TypeRow {...typeIndex} />
+              </div>
+            ))
+          }
+
+          <table>
+            <tr>
+              <td>Height</td>
+              <td>{this.state.height}m</td>
+            </tr>
+            <tr>
+              <td>Weight</td>
+              <td>{this.state.weight}kg</td>
+            </tr>
+            <tr>
+              <td>Base Xp</td>
+              <td>{this.state.base_experience}</td>
+            </tr>
+          </table>
         </div>
-        <div className="pokemonMoveList">
-          <h5>Moves learned</h5>
+
+
+        <div className="two">
+        <div>
+          <table>
+          <tr>
+            <th>Stats</th>
+            <th>pts</th>
+          </tr>
+          {
+            this.state.stats.map((statIndex) => (
+              <div className="stat">
+                <StatRow {...statIndex} />
+              </div>
+            ))
+          }
+          </table>
+          <table>
+          <tr>
+            <th>Abilities</th>
+            <th>pts</th>
+          </tr>
+          {
+            this.state.stats.map((abilityIndex) => (
+              <div className="stat">
+                <AbilityRow {...abilityIndex} />
+              </div>
+            ))
+          }
+          </table>
+          </div>
+          <div className="moverow">
+          <h3>Moves Learned</h3>
           {
             this.state.moves.map((moveIndex) => (
-              <div id="move">
+              <div className="move">
                 <MoveRow {...moveIndex} />
               </div>
             ))
           }
-        </div>
-        <div className="lists">
-          <div className="pokemonAbilityList">
-            <h5>Abilities</h5>
-            {
-              this.state.abilities.map((abilityIndex) => (
-                <div id="ability">
-                  <AbilityRow {...abilityIndex} />
-                  </div>
-                ))
-            }
-          </div>
-          <div className="pokemonStatsList">
-            <h5>Stats</h5>
-            {
-              this.state.stats.map((statIndex) => (
-                <div id="stat">
-                  <StatRow {...statIndex} />
-                </div>
-              ))
-            }
           </div>
         </div>
       </div>

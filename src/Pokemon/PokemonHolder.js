@@ -88,17 +88,19 @@ class PokemonHolder extends Component{
   render(){
     return(
       <div className="all">
-        <div className="holder">
-          {
-            this.state.pokemon.map((item) => (
-              <div id="poke" onClick={ ()=>this.show(item) }>
-			             <PokemonRow {...item} />
-              </div>
-		        ))
-          }
-          <input type="button" value="Next" onClick={this.onClick}/>
-          <br/>
-          <br/>
+        <div className="allPokemon">
+          <div className="holder">
+            {
+              this.state.pokemon.map((item) => (
+                  <div id="poke" onClick={ ()=>this.show(item) }>
+			              <PokemonRow {...item} />
+                  </div>
+		          ))
+            }
+            <input type="button" value="Next" onClick={this.onClick}/>
+            <br/>
+            <br/>
+          </div>
         </div>
         <div className="deets">
           <Details ref="details" {...this.state.activePokemon} />

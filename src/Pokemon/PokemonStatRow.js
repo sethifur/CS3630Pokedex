@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './PokemonHolder.css';
 
 export default (props)=>(
-  <div className="stat">
-       <p>{props.name}: {props.base_stat}</p>
-  </div>
+  <tr className="stat">
+       <td>{props.name}</td>
+       <td>{props.base_stat}</td>
+  </tr>
 );

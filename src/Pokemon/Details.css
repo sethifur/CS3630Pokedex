@@ -1,40 +1,28 @@
-.pokemonMoveList{
-  float:left;
-  width: 200px;
+.type{
+  display: inline;
+  padding-left: 5px;
 }
-.pokemonImg{
-  float:left;
+.all{
+  width: 75%;
+  float: left;
 }
-
-.pokemonImg img{
-  width: 300px;
-  height: 300px;
+.one{
+  float: left;
+  width: 50;
 }
-.pokemonDetails{
-  display: flex;
-}
-.pokemonMoveList{
-  height:500px;
-  overflow-y: scroll;
-  padding-left: 10px;
-}
-.pokemonAbilityList{
-  margin-bottom: 10px;
-  height:100px;
-  width: 200px;
-}
-.pokemonStatsList{
-  height:250px;
-  width: 200px;
-  margin-bottom: 10px;
-}
-.pokemonTypeList{
-  margin-bottom: 10px;
+.two{
+  float: left;
+  padding-left: 20px;
   display: inline-flex;
 }
-.pokemonTypeList h6{
-  margin-right: 10px;
+.two table{
+  text-align: left;
+  float:left;
 }
-.imageDesign{
-  display:block;
+.moverow{
+  float: left;
+  overflow-y: scroll;
+  margin-left: 10px;
+  height: 370px;
+  width: 300px
 }

@@ -21,7 +21,6 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-
           <h2>PokeDex</h2>
         </div>
         <div className="App-navigation">
@@ -35,11 +34,11 @@ class App extends Component {
             Moves
           </div>
         </div>
-        <div className="pHolder">
-          <PokemonHolder />
-
+        <div className="pokeScroll">
+          <div className="pHolder">
+            <PokemonHolder />
+          </div>
         </div>
-
       </div>
     );
   }

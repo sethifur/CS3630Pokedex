@@ -16,11 +16,15 @@
 .all{
   display: flex;
 }
+.holder{
+  overflow-y: scroll;
+  height: 520px;
+}
 .type img{
   width: 70px;
   height: 17px;
 }
-/*.holder{
-  overflow-y: scroll;
-  height: 500px;
-}*/
+table, td {
+   border: 1px solid black;
+   width: 100%;
+}

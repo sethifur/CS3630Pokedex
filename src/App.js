@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PokemonHolder from './Pokemon';
-import ItemHolder from './Items';
-import MoveHolder from './Moves';
-import Circle from 'react-shapes';
-import { Link } from 'react-router';
+import Pokemon from './Pokemon';
+import Item from './Item';
+import Move from './Move';
+import ReactDOM from 'react-dom';
+import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router';
 
 class App extends Component {
   constructor(props){
@@ -24,24 +24,23 @@ class App extends Component {
           <h2>PokeDex</h2>
         </div>
         <div className="App-navigation">
-          <div onClick={() => this.onNavClick('PokemonHolder')}>
-            Pokemon
+          <div>
+            <Link to='/pokemon' activeClassName="active">Pokemon</Link>
           </div>
-          <div onClick={() => this.onNavClick('ItemHolder')}>
-            Items
+          <div>
+            <Link to='/move' activeClassName="active">Moves</Link>
           </div>
-          <div onClick={() => this.onNavClick('MoveHolder')}>
-            Moves
+          <div>
+            <Link to='/item' activeClassName="active">Items</Link>
           </div>
         </div>
         <div className="pokeScroll">
-          <div className="pHolder">
-            <PokemonHolder />
-          </div>
+          {this.props.children}
         </div>
       </div>
     );
   }
+
 }
 
 export default App;

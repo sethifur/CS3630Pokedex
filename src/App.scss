@@ -1,58 +1,61 @@
 .App {
   text-align: center;
-  width: 100%; }
-
-.pHolder {
-  margin-left: 50px; }
-
+  width: 100%;
+}
+.pHolder{
+  margin-left: 50px;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 60px; }
+  height: 60px;
+}
 
 .App-header {
   background-color: #FF3311;
   height: 30px;
   padding: 20px;
-  color: white; }
+  color: white;
+}
 
-.App-navigation {
+.App-navigation{
   background-color: #000;
   height: 20px;
   width: 100%;
   padding-top: 10px;
   text-align: center;
-  align-items: center; }
-
-.App-navigation div {
+  align-items: center;
+}
+.App-navigation div{
   float: left;
   width: 33%;
   color: #FFF;
   text-decoration: underline;
-  font-variant: small-caps; }
-
+  font-variant: small-caps;
+}
 .App-intro {
-  font-size: large; }
-
-.pHolder {
+  font-size: large;
+}
+.pHolder{
   float: left;
   margin-right: 3em;
-  width: 25%; }
-
-.iHolder {
+  width: 25%;
+}
+.iHolder{
   float: left;
   margin-right: 3em;
-  width: 25%; }
-
-.mHolder {
-  float: left;
+  width: 25%;
+}
+.mHolder{
+  float:left;
   margin-right: 3em;
-  width: 25%; }
+  width: 25%;
+}
 
-.pokeScroll {
-  overflow-y: scroll; }
+.pokeScroll{
+  overflow-y: scroll;
+}
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

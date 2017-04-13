@@ -128,9 +128,8 @@ class Details extends Component{
           </tr>
           {
             this.state.stats.map((statIndex) => (
-              <div className="stat">
                 <StatRow {...statIndex} />
-              </div>
+
             ))
           }
           </table>
@@ -140,9 +139,7 @@ class Details extends Component{
           </tr>
           {
             this.state.abilities.map((abilityIndex) => (
-              <div className="ability">
                 <AbilityRow {...abilityIndex} />
-              </div>
             ))
           }
           </table>

@@ -7,16 +7,16 @@ import Move from './Move';
 import Item from './Item';
 import Pokemon from './Pokemon';
 
-render((
+ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Pokemon}/>
+      <IndexRoute component={App}/>
       <Route path="/pokemon" component={Pokemon}/>
-        <Route path="/item" component={Item}/>
+      <Route path="/item" component={Item}/>
       <Route path="/move" component={Move}/>
     </Route>
   </Router>
-), document.getElementById('app'))
+), document.getElementById('root'))
 
 
 //   <Router history={browserHistory}>

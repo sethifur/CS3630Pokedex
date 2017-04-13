@@ -25,17 +25,17 @@ class App extends Component {
         </div>
         <div className="App-navigation">
           <div>
-            <Link to='/pokemon' activeClassName="active">Pokemon</Link>
+            <Link to='/Pokemon' activeClassName="active">Pokemon</Link>
           </div>
           <div>
-            <Link to='/move' activeClassName="active">Moves</Link>
+            <Link to='/Move' activeClassName="active">Moves</Link>
           </div>
           <div>
-            <Link to='/item' activeClassName="active">Items</Link>
+            <Link to='/Item' activeClassName="active">Items</Link>
           </div>
         </div>
         <div className="pokeScroll">
-          {this.props.children}
+        {this.props.children}
         </div>
       </div>
     );

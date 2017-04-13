@@ -24,7 +24,7 @@
   width: 70px;
   height: 17px;
 }
-table, td {
+table{
    border: 1px solid black;
    border-width: 100%;
    width: 100%;

@@ -129,7 +129,6 @@ class Details extends Component{
           {
             this.state.stats.map((statIndex) => (
                 <StatRow {...statIndex} />
-
             ))
           }
           </table>

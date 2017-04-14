@@ -1,0 +1,13 @@
+.spriteName{
+  align-items: center;
+  display:flex;
+}
+.one{
+  float: left;
+  text-align: left;
+  width: 100%;
+  min-width: 300px;
+}
+.all{
+  width: 100%;
+}

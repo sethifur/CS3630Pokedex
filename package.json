@@ -7,7 +7,7 @@
     "react-dom": "^15.4.2",
     "react-router": "^3.x.x",
     "react-shapes": "^0.1.0",
-    "homepage": "https://sethifur.github.io/cs3630pokedex"
+    "homepage": "https://sethifur.github.io/CS3630Pokedex"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",

@@ -7,7 +7,7 @@ class Details extends Component{
     this.state = {
       next: 'https://pokeapi.co/api/v2/move/?offset=0',
       name: "",
-      number:"",
+      number:"001",
       url:'https://pokeapi.co/api/v2/move/1/',
       accuracy:'',
       damage_class:'',

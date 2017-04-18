@@ -5,7 +5,7 @@ import Pokemon from './Pokemon';
 import Item from './Item';
 import Move from './Move';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router';
+import { Router, Route, Link, hashHistory, IndexRoute  } from 'react-router';
 
 class App extends Component {
   constructor(props){

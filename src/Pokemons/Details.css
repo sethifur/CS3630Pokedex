@@ -1,22 +1,27 @@
 .type {
   display: inline;
-  padding-left: 5px; }
+  padding-left: 5px; 
+  }
 
 .all {
   width: 75%;
   float: left;
-  margin-left: 100px; }
+  margin-left: 100px; 
+  }
 
 .one {
-  float: left; }
+  float: left; 
+  }
 
 .one sprite {
-  width: 250px; }
+  width: 250px; 
+  }
 
 .two {
   float: left;
   display: inline-flex;
-  margin-left: 90px; }
+  margin-left: 90px; 
+  }
 
 .two table {
   text-align: left;
@@ -24,7 +29,8 @@
   width: 100%;
   margin-right: 20px;
   margin-left: 20px;
-  margin-top: 20px; }
+  margin-top: 20px; 
+  }
 
 .moverow {
   float: left;
@@ -32,4 +38,5 @@
   margin-left: 30px;
   height: 370px;
   width: 300px;
-  min-width: 200px; }
+  min-width: 200px; 
+  }

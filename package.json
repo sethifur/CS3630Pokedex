@@ -6,9 +6,11 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.x.x",
-    "react-shapes": "^0.1.0"
+    "react-shapes": "^0.1.0",
+    "homepage": "https://sethifur.github.io/cs3630pokedex"
   },
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "react-scripts": "0.9.5"
@@ -20,6 +22,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   }
 }

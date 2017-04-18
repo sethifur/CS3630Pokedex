@@ -29,7 +29,7 @@ class Details extends Component{
       name: pokemon.name,
       number: pokemon.number,
       url: pokemon.url,
-      picture: 'CS3630Pokedex/static/images/img/' + pokemon.number + pokemon.name + '.png'}
+      picture: 'github.com/sethifur/CS3630Pokedex/tree/gh-pages/static/images/img/' + pokemon.number + pokemon.name + '.png'}
       , this.fetchInfo(pokemon.url));
   }
 

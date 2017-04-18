@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import './ItemHolder.css';
 import ItemRow from './ItemRow';
+import Details from './Details';
 
 class ItemHolder extends Component{
 
@@ -10,6 +11,7 @@ class ItemHolder extends Component{
     this.onClick = this.onClick.bind(this);
     this.state = {
       next: 'https://pokeapi.co/api/v2/item/?offset=0',
+      activeItem: {},
       item: []
     };
   }
@@ -20,6 +22,10 @@ class ItemHolder extends Component{
 
   onClick(){
     this.retrieveList();
+  }
+
+  show(anItem, event){
+    this.setState({activeItem: anItem}, this.refs.details.show(anItem));
   }
 
   retrieveList(){
@@ -46,12 +52,10 @@ class ItemHolder extends Component{
           else if(itemnum < 10){val = "00" + itemnum;}
           else{console.log("wrong");}
 
-          if(res[i].name.substring(0,2) !== 'tm'){
-            im = "/static/images/items/" + res[i].name + ".png";
-          }else{
-            im = "/static/images/items/tm-normal.png";
+          im = "/static/images/items/" + res[i].name + ".png";
+          if(res[i].name.includes("data-card")){
+            im = "/static/images/items/data-card.png";
           }
-
           var obj = {
             number:val,
             sprite:im,
@@ -71,17 +75,26 @@ class ItemHolder extends Component{
 
   render(){
     return(
-      <div ref="holder">
-        <div id="item">
-        {
-          this.state.item.map((res) => (
+      <div className="all">
+        <div className="allItems">
+          <div ref="holder">
+            <div id="item">
+            {
+              this.state.item.map((res) => (
+                <div id="it" onClick={ ()=>this.show(res) }>
 			           <ItemRow {...res}/>
-		      ))
-        }
-        </div>
-        <input type="button" value="Next" onClick={this.onClick}/>
-        <br/>
-        <br/>
+                </div>
+		          ))
+            }
+            </div>
+            <input type="button" value="Next" onClick={this.onClick}/>
+            <br/>
+            <br/>
+            </div>
+          </div>
+          <div className="deets">
+            <Details ref="details" {...this.state.activeItem} />
+          </div>
       </div>
     );
   }

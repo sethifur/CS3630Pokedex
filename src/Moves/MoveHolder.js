@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MoveRow from './MoveRow';
-
+import Details from './Details';
+import './MoveHolder.css';
 class MoveHolder extends Component{
 
   constructor(props) {
@@ -8,7 +9,8 @@ class MoveHolder extends Component{
     this.onClick = this.onClick.bind(this);
     this.state = {
       next: 'https://pokeapi.co/api/v2/move/?offset=0',
-      move: []
+      move: [],
+      activeMove:{}
     };
   }
 
@@ -19,7 +21,9 @@ class MoveHolder extends Component{
   onClick(){
     this.retrieveList();
   }
-
+  show(aMove, event){
+    this.setState({activeMove: aMove}, this.refs.details.show(aMove));
+  }
   retrieveList(){
     var val = "";
     const url = this.state.next;
@@ -60,17 +64,26 @@ class MoveHolder extends Component{
 
   render(){
     return(
-      <div ref="holder">
-        <div id="move">
-        {
-          this.state.move.map((item) => (
-            <MoveRow {...item}/>
-          ))
-        }
-        </div>
-        <input type="button" value="Next" onClick={this.onClick}/>
-        <br/>
-        <br/>
+      <div className="all">
+        <div className="allMoves">
+          <div ref="holder">
+            <div id="moves">
+            {
+              this.state.move.map((res) => (
+                <div id="it" onClick={ ()=>this.show(res) }>
+			           <MoveRow {...res}/>
+                </div>
+		          ))
+            }
+            </div>
+            <input type="button" value="Next" onClick={this.onClick}/>
+            <br/>
+            <br/>
+            </div>
+          </div>
+          <div className="deets">
+            <Details ref="details" {...this.state.activeMove} />
+          </div>
       </div>
     );
   }

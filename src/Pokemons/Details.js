@@ -29,7 +29,8 @@ class Details extends Component{
       name: pokemon.name,
       number: pokemon.number,
       url: pokemon.url,
-      picture: '/CS3630Pokedex/static/images/img/' + pokemon.number + pokemon.name + '.png'}
+      picture: '/CS3630Pokedex/static/images/img/' + 
+        pokemon.number + pokemon.name.replace(pokemon.name[0], pokemon.name[0].toUpperCase()) + '.png'}
       , this.fetchInfo(pokemon.url));
   }
 

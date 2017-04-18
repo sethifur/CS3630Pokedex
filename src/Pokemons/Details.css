@@ -1,29 +1,35 @@
-.type{
+.type {
   display: inline;
-  padding-left: 5px;
-}
-.all{
+  padding-left: 5px; }
+
+.all {
   width: 75%;
   float: left;
-}
-.one{
+  margin-left: 100px; }
+
+.one {
+  float: left; }
+
+.one sprite {
+  width: 250px; }
+
+.two {
   float: left;
-  width: 50;
-}
-.two{
-  float: left;
-  padding-left: 20px;
   display: inline-flex;
-}
-.two table{
+  margin-left: 90px; }
+
+.two table {
   text-align: left;
-  float:left;
+  float: left;
   width: 100%;
-}
-.moverow{
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px; }
+
+.moverow {
   float: left;
   overflow-y: scroll;
-  margin-left: 10px;
+  margin-left: 30px;
   height: 370px;
-  width: 300px
-}
+  width: 300px;
+  min-width: 200px; }

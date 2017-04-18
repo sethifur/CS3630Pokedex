@@ -10,7 +10,7 @@ import Pokemon from './Pokemon';
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={App}/>
+      <IndexRoute component={Pokemon}/>
       <Route path="/pokemon" component={Pokemon}/>
       <Route path="/item" component={Item}/>
       <Route path="/move" component={Move}/>

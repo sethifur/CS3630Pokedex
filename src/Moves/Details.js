@@ -30,10 +30,8 @@ class Details extends Component{
       type:'',
       normal_use_after:[],
       normal_use_before:[],
-      super_use_after:[],
-      super_use_before:[],
       effect_entries:[],
-      stat_changes:[],
+      stat_change:[],
     };
   }
 
@@ -76,18 +74,54 @@ class Details extends Component{
         }))
         return res;
       })
-      .then(res => {this.setState(state => ({
+      .then(res => {
+        if(res.contest_combos.normal.use_after){
+        this.setState(state => ({
         normal_use_after : res.contest_combos.normal.use_after.map(post => ({
             name: post.name
-        }))}))
+        }))}))}else{
+          this.setState(state => ({
+          normal_use_after : []
+        }))}
         return res;
       })
-      .then(res => {this.setState(state => ({
+      .then(res => {
+        if(res.contest_combos.normal.use_before){
+        this.setState(state => ({
         normal_use_before : res.contest_combos.normal.use_before.map(post => ({
             name: post.name
-        }))}))
+        }))}))}else{
+          this.setState(state => ({
+          normal_use_before : []}))
+        }
         return res;
       })
+      .then(res => {
+        if(res.stat_changes){
+        this.setState(state => ({
+        stat_change : res.stat_changes.map(post => ({
+          change: post.change,
+          stat_effected: post.stat.name
+        }))
+      }))}else{
+        this.setState(state => ({
+          stat_change : []
+        }))
+        }
+        return res;
+      })
+      .then(res => {
+        if(res.effect_entries){
+        this.setState(state => ({
+        effect_entries : res.effect_entries.map(post => ({
+            name: post.effect
+        }))}))}else{
+          this.setState(state => ({
+            effect_entries : []
+          }))
+        }
+        return res;
+      }).then(res => console.log(res))
   }
 
   render(){
@@ -114,7 +148,7 @@ class Details extends Component{
 
           <p>Target: {this.state.target}</p>
 
-          <p>Max Hit: {this.state.max_hit}</p>
+          <p>Max Hits: {this.state.max_hit}</p>
 
           <p>Max Turns: {this.state.max_turns}</p>
 
@@ -146,7 +180,26 @@ class Details extends Component{
               ))
             }
           </div>
-
+          <div>
+            <h4>Stat Effected</h4>
+            {
+              this.state.stat_change.map((stat) => (
+                <div>
+                  {stat.change} to {stat.stat_effected}
+                </div>
+              ))
+            }
+          </div>
+          <div>
+            <h4>Discription</h4>
+            {
+              this.state.effect_entries.map((stat) => (
+                <div>
+                  {stat.name.replace("$effect_chance%", this.state.effect_chance)}
+                </div>
+              ))
+            }
+          </div>
           </div>
         </div>
       </div>

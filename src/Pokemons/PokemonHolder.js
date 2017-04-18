@@ -56,15 +56,15 @@ class PokemonHolder extends Component{
           var endIndex = res[i].url.length - 1;
           var pokenum = res[i].url.substring(34,endIndex);
           if(pokenum > 99){
-            im = "/static/images/spr/" + pokenum + "MS.png";
+            im = "/CS3630Pokedex/static/images/spr/" + pokenum + "MS.png";
             val = "" + pokenum;
           }
           else if(pokenum >= 10 && pokenum <= 99){
-            im = "/static/images/spr/0" + pokenum + "MS.png";
+            im = "/CS3630Pokedex/static/images/spr/0" + pokenum + "MS.png";
             val = "0" + pokenum;
           }
           else if(pokenum < 10){
-            im = "/static/images/spr/00" + pokenum + "MS.png";
+            im = "/CS3630Pokedex/static/images/spr/00" + pokenum + "MS.png";
             val = "00" + pokenum;
           }else{
             console.log("wrong");

@@ -51,11 +51,6 @@
 .pokeScroll {
   overflow-y: scroll; }
 
-  a{
-    -moz-text-decoration-color: white;
-    color: white;
-  }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg); }

@@ -52,7 +52,7 @@ class ItemHolder extends Component{
           else if(itemnum < 10){val = "00" + itemnum;}
           else{console.log("wrong");}
 
-          im = "/static/images/items/" + res[i].name + ".png";
+          im = "/CS3630Pokedex/static/images/items/" + res[i].name + ".png";
           if(res[i].name.includes("data-card")){
             im = "/CS3630Pokedex/static/images/items/data-card.png";
           }

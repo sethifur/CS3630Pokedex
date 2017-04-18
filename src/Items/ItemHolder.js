@@ -54,7 +54,7 @@ class ItemHolder extends Component{
 
           im = "/static/images/items/" + res[i].name + ".png";
           if(res[i].name.includes("data-card")){
-            im = "/static/images/items/data-card.png";
+            im = "/CS3630Pokedex/static/images/items/data-card.png";
           }
           var obj = {
             number:val,

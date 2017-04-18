@@ -25,6 +25,6 @@
     "predeploy": "npm run build", 
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://sethifur.github.io/CS3630Pokedex"
+  "homepage": "https://sethifur.github.io/cs3630-pokedex"
 
 }

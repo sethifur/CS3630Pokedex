@@ -11,7 +11,7 @@ class Details extends Component{
     super(props);
     this.state = {
       url: "https://pokeapi.co/api/v2/pokemon/1/",
-      picture: "/images/img/001Bulbasaur.png",
+      picture: "/CS3630Pokedex/static/images/img/001Bulbasaur.png",
       name: "bulbasaur",
       number: "001",
       base_experience: 64,
@@ -29,7 +29,7 @@ class Details extends Component{
       name: pokemon.name,
       number: pokemon.number,
       url: pokemon.url,
-      picture: '/images/img/' + pokemon.number + pokemon.name + '.png'}
+      picture: '/CS3630Pokedex/static/images/img/' + pokemon.number + pokemon.name + '.png'}
       , this.fetchInfo(pokemon.url));
   }
 

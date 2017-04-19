@@ -44,4 +44,7 @@ table {
     display: flex; }
   .holder{
     height: 300px;
+    }
+  .allPokemon{
+    height: 300px;
     }}

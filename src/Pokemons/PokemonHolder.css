@@ -41,4 +41,7 @@ table {
   .all {
     display: table; }
   .pokemon {
-    display: flex; } }
+    display: flex; }
+  .holder{
+    height: 300px;
+    }}

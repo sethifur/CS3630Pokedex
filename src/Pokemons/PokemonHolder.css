@@ -9,7 +9,7 @@
   border-style: outset; }
 
 .allPokemon {
-  width: 200px; }
+  width: 20%; }
 
 .deets {
   float: left;
@@ -32,3 +32,13 @@ table {
   border: 1px solid black;
   border-width: 100%;
   width: 100%; }
+
+@media screen and (max-width: 750px) {
+  .deets {
+    float: left;
+    clear: both;
+    display: table-column-group; }
+  .all {
+    display: table; }
+  .pokemon {
+    display: flex; } }

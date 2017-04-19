@@ -16,3 +16,7 @@
 
 .all {
   width: 100%; }
+
+@media screen and (max-width: 750px) {
+  .allMoves {
+    height: 300px; } }

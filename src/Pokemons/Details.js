@@ -93,7 +93,7 @@ class Details extends Component{
       <div className='all'>
 
         <div className="one">
-          <img src={this.state.picture} className="sprite"/>
+          <img src={this.state.picture} className="bigPic"/>
           <h3>{this.state.number}  {this.state.name}</h3>
           {
             this.state.types.map((typeIndex) => (

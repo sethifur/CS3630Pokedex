@@ -1,42 +1,92 @@
-.type {
-  display: inline;
-  padding-left: 5px; 
-  }
+@media screen and (min-width: 400px) {
+  .all {
+    width: 75%; }
+  .one {
+    width: 50%; }
+  .one table {
+    text-align: left;
+    float: left;
+    width: 50%;
+    margin-top: 20px; }
+  .two {
+    margin-left: 0px;
+    width: 67%; }
+  .two table {
+    text-align: left;
+    float: left;
+    width: 75%;
+    margin-top: 20px; }
+  .moverow {
+    margin-top: 10px;
+    float: left;
+    overflow-y: scroll;
+    height: 200px;
+    width: 75%; }
+  .bigPic {
+    height: auto;
+    width: 50%; }
+  h3 {
+    width: 50%; }
+  .type {
+    width: 50%; } }
 
-.all {
-  width: 75%;
-  float: left;
-  margin-left: 100px; 
-  }
+@media screen and (min-width: 750px) {
+  .all {
+    width: 75%;
+    float: left;
+    margin-left: 50px; }
+  .one {
+    margin-left: 10px;
+    width: 50%; }
+  .two {
+    margin-left: 0px; }
+  .two table {
+    text-align: left;
+    float: left;
+    width: 100%;
+    margin-top: 20px; }
+  .moverow {
+    margin-top: 10px;
+    float: left;
+    overflow-y: scroll;
+    height: 200px;
+    width: 100%; }
+  .bigPic {
+    height: auto;
+    width: 100%; }
+  h3 {
+    width: 100%; }
+  .type {
+    width: 100%; } }
 
-.one {
-  float: left; 
-  }
-
-.one sprite {
-  width: 250px; 
-  }
-
-.two {
-  float: left;
-  display: inline-flex;
-  margin-left: 90px; 
-  }
-
-.two table {
-  text-align: left;
-  float: left;
-  width: 100%;
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 20px; 
-  }
-
-.moverow {
-  float: left;
-  overflow-y: scroll;
-  margin-left: 30px;
-  height: 370px;
-  width: 300px;
-  min-width: 200px; 
-  }
+@media screen and (min-width: 1080px) {
+  .type {
+    display: inline;
+    padding-left: 5px; }
+  .all {
+    width: 75%;
+    float: left;
+    margin-left: 100px; }
+  .one {
+    float: left; }
+  .two {
+    float: left;
+    display: inline-flex; }
+  .two table {
+    text-align: left;
+    float: left;
+    width: 100%;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px; }
+  .bigPic {
+    height: auto;
+    width: 300px; }
+  .moverow {
+    float: left;
+    overflow-y: scroll;
+    margin-left: 30px;
+    margin-top: 20px;
+    height: 370px;
+    width: 300px;
+    min-width: 200px; } }

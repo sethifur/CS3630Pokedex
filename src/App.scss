@@ -1,3 +1,78 @@
+.constrain{
+  max-width: 100%;
+  margin:0 auto;
+}
+
+.header{
+  position:fixed;
+  width:100vw;
+
+  .constrain{
+    display:flex;
+    justify-content: space-between;
+  }
+
+  h1{
+    margin:0;
+  }
+
+  .nav-toggle{
+    text-decoration:none;
+    padding:0.5em;
+    display:inline-block;
+    position:relative;
+    background: #0a3;
+    color: #fff;
+    text-align:right;
+    line-height: 27px;
+
+    @media screen and (min-width:450px){
+      display:block;
+      position:inherit;
+      background:none;
+      .trigger{
+        display:none;
+      }
+    }
+  }
+
+  .nav-toggle:hover{
+    ul{
+      display:block;
+    }
+  }
+
+  ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:none;
+    position:relative;
+    background: #00aa33;
+    z-index:10;
+    right:0;
+    min-width:50vw;
+
+    @media screen and (min-width:450px){
+      display:block;
+      position:inherit;
+      background:none;
+      z-index:0;
+      right:auto;
+      min-width:none;
+    }
+
+    li{
+      padding:0.5em;
+      text-align:left;
+      @media screen and (min-width:450px){
+      display:inline-block;
+      color:#000;
+      }
+    }
+  }
+}
+
 .App {
   text-align: center;
   width: 100%;
@@ -53,6 +128,7 @@
 
 .pokeScroll{
   overflow-y: scroll;
+  float: clear-both;
 }
 
 @keyframes App-logo-spin {

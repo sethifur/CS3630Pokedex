@@ -1,3 +1,73 @@
+.constrain {
+  max-width: 100%;
+  margin: 0 auto; }
+
+.header {
+  width: 100vw;
+  background-color: gray; }
+
+.header .constrain {
+  display: flex;
+  justify-content: space-between; }
+
+.header h1 {
+  margin: 0; }
+
+.header .nav-toggle {
+  text-decoration: none;
+  display: inline-block;
+  position: absolute;
+  margin-bottom: 3em;
+  right: 0;
+  background: lightslategray;
+  padding-left: .5em;
+  padding-right: .5em;
+  color: #fff;
+  text-align: right;
+  line-height: 27px; }
+
+@media screen and (min-width: 450px) {
+  .header .nav-toggle {
+    display: block;
+    position: inherit;
+    background: none; }
+  .header .nav-toggle .trigger {
+    display: none; } }
+
+.header .nav-toggle:hover ul {
+  display: block; }
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  position: absolute;
+  background: lightslategray;
+  z-index: 10;
+  right: 0;
+  text-align: center; }
+
+@media screen and (min-width: 450px) {
+  .header ul {
+    width: 100vw;
+    display: block;
+    position: right;
+    background: gray;
+    z-index: 0;
+    right: auto;
+    min-width: none; } }
+
+.header ul li {
+  padding: 0.5em;
+  text-align: center;
+  width: 29%; }
+
+@media screen and (min-width: 450px) {
+  .header ul li {
+    display: inline-block;
+    color: white; } }
+
 .App {
   text-align: center;
   width: 100%; }
@@ -49,7 +119,8 @@
   width: 25%; }
 
 .pokeScroll {
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  float: clear-both; }
 
 @keyframes App-logo-spin {
   from {

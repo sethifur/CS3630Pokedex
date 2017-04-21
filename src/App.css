@@ -3,34 +3,36 @@
   margin: 0 auto; }
 
 .header {
+  position: absolute;
   width: 100vw;
-  background-color: gray; }
+  background: gray; }
 
 .header .constrain {
   display: flex;
   justify-content: space-between; }
 
-.header h1 {
-  margin: 0; }
+.header .navigation {
+  width: 100%;
+  position: inherit; }
 
 .header .nav-toggle {
   text-decoration: none;
+  padding: 0.5em;
   display: inline-block;
   position: absolute;
-  margin-bottom: 3em;
-  right: 0;
   background: lightslategray;
-  padding-left: .5em;
-  padding-right: .5em;
   color: #fff;
   text-align: right;
-  line-height: 27px; }
+  line-height: 27px;
+  right: 0; }
 
 @media screen and (min-width: 450px) {
   .header .nav-toggle {
     display: block;
     position: inherit;
-    background: none; }
+    background: none;
+    text-align: right;
+    right: 0; }
   .header .nav-toggle .trigger {
     display: none; } }
 
@@ -42,20 +44,19 @@
   padding: 0;
   list-style: none;
   display: none;
-  position: absolute;
+  position: relative;
   background: lightslategray;
   z-index: 10;
   right: 0;
-  text-align: center; }
+  width: 100%; }
 
 @media screen and (min-width: 450px) {
   .header ul {
-    width: 100vw;
     display: block;
-    position: right;
-    background: gray;
+    position: inherit;
+    background: none;
     z-index: 0;
-    right: auto;
+    right: 0;
     min-width: none; } }
 
 .header ul li {
@@ -66,7 +67,7 @@
 @media screen and (min-width: 450px) {
   .header ul li {
     display: inline-block;
-    color: white; } }
+    color: #000; } }
 
 .App {
   text-align: center;
@@ -120,7 +121,7 @@
 
 .pokeScroll {
   overflow-y: scroll;
-  float: clear-both; }
+  margin-top: 5em; }
 
 @keyframes App-logo-spin {
   from {

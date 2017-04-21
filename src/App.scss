@@ -4,32 +4,37 @@
 }
 
 .header{
-  position:fixed;
+  position:absolute;
   width:100vw;
-
+  background: gray;
+  
   .constrain{
     display:flex;
     justify-content: space-between;
   }
 
-  h1{
-    margin:0;
-  }
+.navigation{
+  width:100%;
+  position:inherit;
+}
 
   .nav-toggle{
     text-decoration:none;
     padding:0.5em;
     display:inline-block;
-    position:relative;
-    background: #0a3;
+    position:absolute;
+    background: lightslategray;
     color: #fff;
     text-align:right;
     line-height: 27px;
+    right:0;
 
     @media screen and (min-width:450px){
       display:block;
       position:inherit;
       background:none;
+      text-align: right;
+      right:0;
       .trigger{
         display:none;
       }
@@ -48,26 +53,30 @@
     list-style:none;
     display:none;
     position:relative;
-    background: #00aa33;
+    background: lightslategray;
     z-index:10;
     right:0;
-    min-width:50vw;
+    width:100%;
+    ;
 
     @media screen and (min-width:450px){
       display:block;
       position:inherit;
       background:none;
       z-index:0;
-      right:auto;
+      right:0;
       min-width:none;
+    
     }
 
     li{
       padding:0.5em;
-      text-align:left;
+      text-align:center;
+      width: 29%;
       @media screen and (min-width:450px){
       display:inline-block;
       color:#000;
+      
       }
     }
   }
@@ -128,7 +137,7 @@
 
 .pokeScroll{
   overflow-y: scroll;
-  float: clear-both;
+  margin-top: 5em;
 }
 
 @keyframes App-logo-spin {
